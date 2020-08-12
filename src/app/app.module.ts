@@ -14,6 +14,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { AboutComponent } from './components/pages/about/about.component';
+import { PrivateMenuComponent } from './components/layout/private-menu/private-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AboutComponent } from './components/pages/about/about.component';
     GalleryComponent,
     AboutComponent,
     HomeComponent,
+    PrivateMenuComponent,
   ],
   imports: [
     BrowserModule,
