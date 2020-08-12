@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 // App Components
 import { HomeComponent } from './components/pages/home/home.component';
@@ -29,8 +29,8 @@ import { PrivateMenuComponent } from './components/layout/private-menu/private-m
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     MatCardModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
