@@ -2,23 +2,34 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // import pages components
-import { HomeComponent } from './components/pages/home/home.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { GalleryComponent } from './components/pages/gallery/gallery.component';
-import { AboutComponent } from './components/pages/about/about.component';
+import { HomeComponent } from './components/pages/public/home/home.component';
+import { LoginComponent } from './components/pages/public/login/login.component';
+import { AboutComponent } from './components/pages/public/about/about.component';
+import { GalleryComponent } from './components/pages/private/gallery/gallery.component';
+import { CrudComponent } from './components/pages/private/crud/crud.component';
+import { DashboardComponent } from './components/pages/private/dashboard/dashboard.component';
+import { ProfileComponent } from './components/pages/private/profile/profile.component';
+import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
 
-const pathRoutes = {
+const pathNames = {
   login: 'login',
   home: 'home',
-  gallery: 'gallery',
   about: 'about',
+  dashboard: 'dashboard',
+  profile: 'profile',
+  crud: 'crud',
+  gallery: 'gallery',
 };
 
 const routes: Routes = [
-  { path: pathRoutes.login, component: LoginComponent },
-  { path: pathRoutes.home, component: HomeComponent },
-  { path: pathRoutes.gallery, component: GalleryComponent },
-  { path: pathRoutes.about, component: AboutComponent },
+  { path: pathNames.login, component: LoginComponent },
+  { path: pathNames.home, component: HomeComponent },
+  { path: pathNames.about, component: AboutComponent },
+  { path: pathNames.dashboard, component: DashboardComponent },
+  { path: pathNames.gallery, component: GalleryComponent },
+  { path: pathNames.profile, component: ProfileComponent },
+  { path: pathNames.crud, component: CrudComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
