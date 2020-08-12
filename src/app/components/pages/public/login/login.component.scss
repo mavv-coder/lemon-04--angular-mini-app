@@ -2,10 +2,11 @@
   width: max-content;
   margin: 60px auto 0 auto;
   padding-bottom: 6px;
+  color: #3f51b5;
   text-align: center;
   font-size: 30px;
   font-weight: 200;
-  border-bottom: 2px solid #e91e63;
+  border-bottom: 1px solid #424242;
 }
 
 .card {
@@ -26,10 +27,9 @@
 }
 
 .error-msg {
-  border: 1px solid red;
-  text-align: center;
   padding: 3px;
+  text-align: center;
+  color: #ff5252;
+  border: 1px solid #ff5252;
   border-radius: 5px;
-  background-color: red;
-  color: #fff;
 }
