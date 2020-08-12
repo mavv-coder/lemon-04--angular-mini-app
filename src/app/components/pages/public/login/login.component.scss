@@ -1,0 +1,35 @@
+.heading {
+  width: max-content;
+  margin: 60px auto 0 auto;
+  padding-bottom: 6px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  border-bottom: 2px solid #e91e63;
+}
+
+.card {
+  width: max-content;
+  min-width: 200px;
+  margin: 20px auto 0 auto;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn {
+  display: block;
+  width: 100px;
+  margin: 30px auto 0 auto;
+}
+
+.error-msg {
+  border: 1px solid red;
+  text-align: center;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: red;
+  color: #fff;
+}

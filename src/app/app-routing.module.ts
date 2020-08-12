@@ -22,6 +22,7 @@ const pathNames = {
 };
 
 const routes: Routes = [
+  { path: '', component: LoginComponent },
   { path: pathNames.login, component: LoginComponent },
   { path: pathNames.home, component: HomeComponent },
   { path: pathNames.about, component: AboutComponent },

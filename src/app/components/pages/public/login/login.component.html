@@ -1,1 +1,37 @@
-<p>login works!</p>
+<h1 class="heading">User login</h1>
+<form>
+  <mat-card class="card flex-container">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        (blur)="updateUsername($event.target.value)"
+        placeholder="Type your Username"
+        type="text"
+        required
+      />
+    </mat-form-field>
+    <p class="error-msg">Mensaje de error</p>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        (blur)="updatePassword($event.target.value)"
+        placeholder="Type your password"
+        value=""
+        type="password"
+        required
+      />
+    </mat-form-field>
+    <p class="error-msg">Mensaje de error</p>
+  </mat-card>
+  <button
+    mat-raised-button
+    class="submit-btn"
+    color="primary"
+    (click)="onSubmit()"
+  >
+    Login
+  </button>
+</form>
