@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 // App Components
@@ -29,7 +28,6 @@ import { PrivateMenuComponent } from './components/layout/private-menu/private-m
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule,
     MatButtonModule,
   ],
   providers: [],
