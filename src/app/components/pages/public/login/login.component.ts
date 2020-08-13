@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './login.component.vm';
+import { User } from '../../../../model';
 import { AuthService } from '../../../../services/auth.service';
 
 @Component({
@@ -7,27 +7,36 @@ import { AuthService } from '../../../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  user: User;
-  authentification: boolean;
+export class LoginComponent {
+  private user: User;
+  public loginDataError: boolean;
 
   constructor(private authService: AuthService) {
     this.user = {
       username: '',
       password: '',
     };
-    this.authentification = false;
+    this.loginDataError = false;
   }
 
-  ngOnInit(): void {}
+  onSubmit(): void {
+    const login = this.authService.login(
+      this.user.username,
+      this.user.password
+    );
+    if (login === false) {
+      this.loginDataError = true;
+      setTimeout(() => {
+        this.loginDataError = false;
+      }, 4000);
+    }
+  }
 
   updateUsername(value: string): void {
     this.user = { ...this.user, username: value };
-    console.log(this.user);
   }
 
   updatePassword(value: string): void {
     this.user = { ...this.user, password: value };
-    console.log(this.user);
   }
 }

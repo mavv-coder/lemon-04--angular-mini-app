@@ -1,6 +1,9 @@
 <h1 class="heading">User login</h1>
 <form #loginForm="ngForm">
   <mat-card class="card flex-container">
+    <p *ngIf="loginDataError" class="error-msg">
+      Incorrect password or username
+    </p>
     <mat-form-field>
       <mat-label>Username</mat-label>
       <input
@@ -47,7 +50,7 @@
     [disabled]="loginForm.invalid"
     class="submit-btn"
     color="primary"
-    (click)="this.authService.login(username.value, password.value)"
+    (click)="onSubmit()"
   >
     Login
   </button>
