@@ -12,10 +12,7 @@ export class LoginComponent {
   public loginDataError: boolean;
 
   constructor(private authService: AuthService) {
-    this.user = {
-      username: '',
-      password: '',
-    };
+    this.user = { username: '', password: '' };
     this.loginDataError = false;
   }
 

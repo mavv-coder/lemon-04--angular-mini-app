@@ -1,15 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model';
 
-class UserLogin implements User {
-  username: string;
-  password: string;
-  constructor(username: string, password: string) {
-    this.username = username;
-    this.password = password;
-  }
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -19,20 +10,40 @@ export class AuthService {
 
   constructor() {
     this.authentification = false;
+    this.user = this.getLocalStorageData();
   }
 
   login(username: string, password: string): boolean {
     if (username === 'admin' && password === 'test') {
-      this.user = new UserLogin(username, password);
+      this.user = { username, password };
+      this.setLocalStorageData();
       this.authentification = true;
+      console.log(this.user);
       return true;
     }
     return false;
   }
 
-  logout(): void {
+  setLocalStorageData(): void {
+    localStorage.setItem('user', JSON.stringify(this.user));
+  }
+
+  getLocalStorageData(): User {
+    if (localStorage.getItem('user') === null) {
+      return { username: '', password: '' };
+    } else {
+      return JSON.parse(localStorage.getItem('user'));
+    }
+  }
+
+  cleanLocalStorageData(): void {
+    localStorage.clear();
+  }
+
+  logOut(): void {
     this.user = { username: '', password: '' };
     this.authentification = false;
+    this.cleanLocalStorageData();
   }
 
   isLogged(): boolean {

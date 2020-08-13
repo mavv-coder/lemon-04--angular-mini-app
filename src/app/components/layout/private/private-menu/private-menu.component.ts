@@ -7,7 +7,10 @@ import { AuthService } from '../../../../services/auth.service';
   styleUrls: ['./private-menu.component.scss'],
 })
 export class PrivateMenuComponent implements OnInit {
-  constructor(private authService: AuthService) {}
-
+  constructor(public authService: AuthService) {}
   ngOnInit(): void {}
+
+  logOut(): void {
+    this.authService.logOut();
+  }
 }
