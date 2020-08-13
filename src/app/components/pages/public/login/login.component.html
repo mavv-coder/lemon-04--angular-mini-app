@@ -4,11 +4,15 @@
     <mat-form-field>
       <mat-label>Username</mat-label>
       <input
+        ngModel
         matInput
+        name="username"
         placeholder="Type your Username"
+        value=""
         (blur)="updateUsername($event.target.value)"
         type="text"
         required
+        #username="ngModel"
       />
     </mat-form-field>
     <p class="error-msg">Mensaje de error</p>
@@ -16,12 +20,15 @@
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input
+        ngModel
         matInput
+        name="password"
         (blur)="updatePassword($event.target.value)"
         placeholder="Type your password"
         value=""
         type="password"
         required
+        #password="ngModel"
       />
     </mat-form-field>
     <p class="error-msg">Mensaje de error</p>

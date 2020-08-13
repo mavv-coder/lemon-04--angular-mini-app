@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
     // Aquí se invoca al servicio
   }
 
-  updateUsername(value): void {
+  updateUsername(value: string): void {
     this.user = { ...this.user, username: value };
     console.log(this.user);
   }
 
-  updatePassword(value): void {
+  updatePassword(value: string): void {
     this.user = { ...this.user, password: value };
     console.log(this.user);
   }
