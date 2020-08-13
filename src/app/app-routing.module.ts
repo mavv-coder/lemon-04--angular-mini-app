@@ -11,7 +11,7 @@ import { DashboardComponent } from './components/pages/private/dashboard/dashboa
 import { ProfileComponent } from './components/pages/private/profile/profile.component';
 import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
 
-const pathNames = {
+export const pathNames = {
   login: 'login',
   home: 'home',
   about: 'about',

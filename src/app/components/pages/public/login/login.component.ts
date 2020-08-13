@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../../../../model';
 import { AuthService } from '../../../../services/auth.service';
 
@@ -11,12 +12,13 @@ export class LoginComponent {
   private user: User;
   public loginDataError: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.user = { username: '', password: '' };
     this.loginDataError = false;
   }
 
-  onSubmit(): void {
+  onSubmit(event: MouseEvent): void {
+    event.preventDefault();
     const login = this.authService.login(
       this.user.username,
       this.user.password
@@ -26,6 +28,8 @@ export class LoginComponent {
       setTimeout(() => {
         this.loginDataError = false;
       }, 4000);
+    } else {
+      this.router.navigate(['/dashboard']);
     }
   }
 
