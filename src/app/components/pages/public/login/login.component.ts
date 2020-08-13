@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './login.component.vm';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,17 @@ import { User } from './login.component.vm';
 })
 export class LoginComponent implements OnInit {
   user: User;
+  authentification: boolean;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.user = {
       username: '',
       password: '',
     };
+    this.authentification = false;
   }
 
   ngOnInit(): void {}
-
-  onSubmit(): void {
-    // Aquí se invoca al servicio
-  }
 
   updateUsername(value: string): void {
     this.user = { ...this.user, username: value };

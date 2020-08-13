@@ -1,5 +1,5 @@
 <h1 class="heading">User login</h1>
-<form>
+<form #loginForm="ngForm">
   <mat-card class="card flex-container">
     <mat-form-field>
       <mat-label>Username</mat-label>
@@ -8,36 +8,46 @@
         matInput
         name="username"
         placeholder="Type your Username"
-        value=""
         (blur)="updateUsername($event.target.value)"
         type="text"
         required
         #username="ngModel"
       />
     </mat-form-field>
-    <p class="error-msg">Mensaje de error</p>
+    <p *ngIf="username.invalid && username.touched" class="error-msg">
+      Required field
+    </p>
+
+    <!-- (!) This other way can be used to use validations such as minlength or more -->
+    <!-- <div *ngIf="username.invalid && username.touched">
+      <p *ngIf="username.errors.required" class="error-msg">
+        Required field
+      </p>
+    </div> -->
 
     <mat-form-field>
       <mat-label>Password</mat-label>
       <input
-        ngModel
         matInput
+        ngModel
+        type="password"
         name="password"
         (blur)="updatePassword($event.target.value)"
         placeholder="Type your password"
-        value=""
-        type="password"
         required
         #password="ngModel"
       />
     </mat-form-field>
-    <p class="error-msg">Mensaje de error</p>
+    <p *ngIf="password.invalid && password.touched" class="error-msg">
+      Required field
+    </p>
   </mat-card>
   <button
     mat-raised-button
+    [disabled]="loginForm.invalid"
     class="submit-btn"
     color="primary"
-    (click)="onSubmit()"
+    (click)="this.authService.login(username.value, password.value)"
   >
     Login
   </button>
