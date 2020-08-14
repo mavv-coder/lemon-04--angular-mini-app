@@ -1,5 +1,5 @@
-<app-public-menu *ngIf="!isLogged"></app-public-menu>
-<app-private-menu *ngIf="!isLogged"></app-private-menu>
+<app-public-menu *ngIf="!authService.isLogged()"></app-public-menu>
+<app-private-menu *ngIf="authService.isLogged()"></app-private-menu>
 
 <!-- Router components inside next label -->
 <router-outlet></router-outlet>

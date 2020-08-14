@@ -21,7 +21,10 @@
       >
     </li>
   </ul>
-  <button mat-raised-button color="secondary" (click)="logOut()">
-    Log out
-  </button>
+  <div class="flex-container">
+    <p class="username">Hola {{ username }}</p>
+    <button mat-raised-button color="secondary" (click)="logOut()">
+      Log out
+    </button>
+  </div>
 </nav>

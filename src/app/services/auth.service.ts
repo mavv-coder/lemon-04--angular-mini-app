@@ -32,6 +32,7 @@ export class AuthService {
     if (localStorage.getItem('user') === null) {
       return { username: '', password: '' };
     } else {
+      this.authentification = true;
       return JSON.parse(localStorage.getItem('user'));
     }
   }

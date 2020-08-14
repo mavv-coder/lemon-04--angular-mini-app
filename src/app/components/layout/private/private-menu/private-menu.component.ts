@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-private-menu',
@@ -7,10 +8,16 @@ import { AuthService } from '../../../../services/auth.service';
   styleUrls: ['./private-menu.component.scss'],
 })
 export class PrivateMenuComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  username: string;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.username = this.authService.getUsername();
+  }
+
   ngOnInit(): void {}
 
   logOut(): void {
     this.authService.logOut();
+    this.router.navigate(['/login']);
   }
 }
