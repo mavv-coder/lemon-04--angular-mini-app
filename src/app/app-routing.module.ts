@@ -22,9 +22,9 @@ export const pathNames = {
 };
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: pathNames.login, component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: pathNames.home, component: HomeComponent },
+  { path: pathNames.login, component: LoginComponent },
   { path: pathNames.about, component: AboutComponent },
   { path: pathNames.dashboard, component: DashboardComponent },
   { path: pathNames.gallery, component: GalleryComponent },
