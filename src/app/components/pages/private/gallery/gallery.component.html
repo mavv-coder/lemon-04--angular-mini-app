@@ -77,12 +77,22 @@
       >
         Zoom out
       </button>
-      <button mat-raised-button color="warn">
+      <button
+        *ngIf="!isPlayingGallery"
+        (click)="handlePlayGallery()"
+        mat-raised-button
+        color="warn"
+      >
         Play
       </button>
-      <!-- <button mat-raised-button color="warn" (click)="logOut()">
+      <button
+        *ngIf="isPlayingGallery"
+        mat-raised-button
+        color="warn"
+        (click)="handlePlayGallery()"
+      >
         Stop
-      </button> -->
+      </button>
     </div>
     <mat-divider class="divider"></mat-divider>
     <div class="img-gallery-container">
