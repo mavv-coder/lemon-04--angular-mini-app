@@ -2,6 +2,7 @@
 <main class="main-container">
   <mat-card class="gallery-container">
     <img class="main-img" src="../../../../../assets/gallery/duck.jpg" alt="" />
+    <mat-divider class="divider"></mat-divider>
     <div class="btn-container">
       <button mat-raised-button color="primary" (click)="logOut()">
         Previous
@@ -22,6 +23,7 @@
         Stop
       </button> -->
     </div>
+    <mat-divider class="divider"></mat-divider>
     <div class="img-gallery-container">
       <img
         *ngFor="let picture of pictureList"

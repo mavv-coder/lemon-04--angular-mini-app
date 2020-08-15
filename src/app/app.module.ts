@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 // App Components
 import { HomeComponent } from './components/pages/public/home/home.component';
@@ -46,6 +47,7 @@ import { NotFoundComponent } from './components/pages/common/not-found/not-found
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatDividerModule,
     FormsModule,
   ],
   providers: [],
