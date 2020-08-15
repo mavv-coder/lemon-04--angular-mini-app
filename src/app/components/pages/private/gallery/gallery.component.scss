@@ -14,10 +14,19 @@
   justify-content: center;
   width: 100%;
   margin: 20px auto 0 auto;
+  height: max-content;
 }
 
 .gallery-container {
   width: 450px;
+}
+
+.img-container {
+  width: 450px;
+  height: 450px;
+  margin-bottom: 8px;
+  border-radius: 2%;
+  overflow: hidden;
 }
 
 .main-img {
@@ -29,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 25px 0 5px 0;
+  margin: 32px 0 5px 0;
 }
 
 .img-gallery-container {
@@ -45,4 +54,24 @@
 
 .divider {
   margin: 10px 0;
+}
+
+.scale-1 {
+  transform: scale(1);
+}
+
+.scale-2 {
+  transform: scale(1.3);
+}
+
+.scale-3 {
+  transform: scale(1.6);
+}
+
+.scale-4 {
+  transform: scale(2);
+}
+
+.scale-5 {
+  transform: scale(2.2);
 }
