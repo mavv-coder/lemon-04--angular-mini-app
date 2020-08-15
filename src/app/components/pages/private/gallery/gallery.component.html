@@ -10,10 +10,38 @@
     </div>
     <mat-divider class="divider"></mat-divider>
     <div class="btn-container">
-      <button mat-raised-button color="primary">
+      <button
+        *ngIf="pictureList[0].id !== currentPicture.id"
+        mat-raised-button
+        color="primary"
+        (click)="handlePreviousPic()"
+      >
         Previous
       </button>
-      <button mat-raised-button color="primary">
+      <button
+        *ngIf="pictureList[0].id === currentPicture.id"
+        mat-raised-button
+        color="primary"
+        disabled
+        (click)="handlePreviousPic()"
+      >
+        Previous
+      </button>
+      <button
+        *ngIf="pictureList[pictureList.length - 1].id !== currentPicture.id"
+        mat-raised-button
+        color="primary"
+        (click)="handleNextPic()"
+      >
+        Next
+      </button>
+      <button
+        *ngIf="pictureList[pictureList.length - 1].id === currentPicture.id"
+        mat-raised-button
+        color="primary"
+        disabled
+        (click)="handleNextPic()"
+      >
         Next
       </button>
       <button

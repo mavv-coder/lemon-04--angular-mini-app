@@ -27,6 +27,18 @@ export class GalleryComponent {
     this.currentScale = this.currentScale - 1;
   }
 
+  handleNextPic(): void {
+    const index =
+      this.pictureList.findIndex((el) => el.id === this.currentPicture.id) + 1;
+    this.setCurrentPicture(this.pictureList[index]);
+  }
+
+  handlePreviousPic(): void {
+    const index =
+      this.pictureList.findIndex((el) => el.id === this.currentPicture.id) - 1;
+    this.setCurrentPicture(this.pictureList[index]);
+  }
+
   setCurrentPicture(pic: ApiPictureEntity): void {
     this.currentPicture = pic;
   }
