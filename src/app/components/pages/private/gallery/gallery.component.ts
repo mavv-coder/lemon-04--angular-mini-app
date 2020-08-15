@@ -12,6 +12,7 @@ export class GalleryComponent {
   currentScale: number = 1;
   currentPicture: ApiPictureEntity;
   isPlayingGallery: boolean = false;
+  intervalActivated: any;
 
   constructor(public galleryService: GalleryService) {
     this.galleryService.getApiPictureListPromise().then((list) => {
@@ -49,13 +50,12 @@ export class GalleryComponent {
   handlePlayGallery(): void {
     if (!this.isPlayingGallery) {
       this.isPlayingGallery = true;
-      var playGallery = setInterval(() => {
+      this.intervalActivated = setInterval(() => {
         this.handleNextPic();
       }, 2000);
     } else {
       this.isPlayingGallery = false;
-      console.log('stop');
-      clearInterval(playGallery);
+      clearInterval(this.intervalActivated);
     }
   }
 
