@@ -26,4 +26,8 @@ export class GalleryComponent {
   zoomOut(): void {
     this.currentScale = this.currentScale - 1;
   }
+
+  setCurrentPicture(pic: ApiPictureEntity): void {
+    this.currentPicture = pic;
+  }
 }
