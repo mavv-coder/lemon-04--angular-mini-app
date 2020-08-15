@@ -1,0 +1,44 @@
+.heading {
+  width: max-content;
+  margin: 60px auto 0 auto;
+  padding-bottom: 6px;
+  color: #3f51b5;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  border-bottom: 1px solid #424242;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px auto 0 auto;
+}
+
+.gallery-container {
+  width: 450px;
+}
+
+.main-img {
+  max-width: 100%;
+  margin: 0;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.img-gallery-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pag-img {
+  max-width: 10%;
+}

@@ -1,4 +1,34 @@
-<p>gallery works!</p>
-<div *ngFor="let picture of pictureList">
-  <img src="{{ picture.src }}" alt="{{ picture.title }}" />
-</div>
+<h1 class="heading">Gallery</h1>
+<main class="main-container">
+  <mat-card class="gallery-container">
+    <img class="main-img" src="../../../../../assets/gallery/duck.jpg" alt="" />
+    <div class="btn-container">
+      <button mat-raised-button color="primary" (click)="logOut()">
+        Previous
+      </button>
+      <button mat-raised-button color="primary" (click)="logOut()">
+        Next
+      </button>
+      <button mat-raised-button color="basic" (click)="logOut()">
+        Zoom in
+      </button>
+      <button mat-raised-button color="basic" (click)="logOut()">
+        Zoom out
+      </button>
+      <button mat-raised-button color="warn" (click)="logOut()">
+        Play
+      </button>
+      <!-- <button mat-raised-button color="warn" (click)="logOut()">
+        Stop
+      </button> -->
+    </div>
+    <div class="img-gallery-container">
+      <img
+        *ngFor="let picture of pictureList"
+        class="pag-img"
+        src="{{ picture.src }}"
+        alt="{{ picture.title }}"
+      />
+    </div>
+  </mat-card>
+</main>
