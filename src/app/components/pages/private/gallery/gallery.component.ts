@@ -10,10 +10,12 @@ import { ApiPictureEntity } from '../../../../../api';
 export class GalleryComponent {
   pictureList: ApiPictureEntity[] = [];
   currentScale: number = 1;
+  currentPicture: ApiPictureEntity;
 
   constructor(public galleryService: GalleryService) {
     this.galleryService.getApiPictureListPromise().then((list) => {
       this.pictureList = list;
+      this.currentPicture = list[0];
     });
   }
 
