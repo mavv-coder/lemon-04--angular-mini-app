@@ -58,12 +58,14 @@
     </div>
     <mat-divider class="divider"></mat-divider>
     <div class="img-gallery-container">
-      <img
-        *ngFor="let picture of pictureList"
-        class="pag-img"
-        src="{{ picture.src }}"
-        alt="{{ picture.title }}"
-      />
+      <div class="pag-img-container" *ngFor="let picture of pictureList">
+        <img
+          class="pag-img"
+          src="{{ picture.src }}"
+          alt="{{ picture.title }}"
+          (click)="setCurrentPicture(picture)"
+        />
+      </div>
     </div>
   </mat-card>
 </main>
