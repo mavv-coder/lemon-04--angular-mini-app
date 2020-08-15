@@ -100,17 +100,25 @@
         class="pag-btn"
         mat-raised-button
         color="primary"
-        (click)="handleNextPic()"
+        (click)="setPictureListPagination('rest')"
       >
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
+      <!-- <div
+        class="{{
+          currentPicture.id === picture.id
+            ? 'pag-img-container selected-img'
+            : 'pag-img-container'
+        }}"
+        *ngFor="let picture of pictureList | slice: {{num1}}:{{num2}}"
+      > -->
       <div
         class="{{
           currentPicture.id === picture.id
             ? 'pag-img-container selected-img'
             : 'pag-img-container'
         }}"
-        *ngFor="let picture of pictureList | slice: 3:6"
+        *ngFor="let picture of pictureListPagination"
       >
         <img
           class="pag-img"
@@ -123,7 +131,7 @@
         class="pag-btn"
         mat-raised-button
         color="primary"
-        (click)="handleNextPic()"
+        (click)="setPictureListPagination('sum')"
       >
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>

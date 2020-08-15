@@ -13,12 +13,31 @@ export class GalleryComponent {
   currentPicture: ApiPictureEntity;
   isPlayingGallery: boolean = false;
   intervalActivated: any;
+  pictureListPagination: ApiPictureEntity[] = [];
+  fistPaginationItem: number = 0;
+  lastPaginationItem: number = 3;
 
   constructor(public galleryService: GalleryService) {
     this.galleryService.getApiPictureListPromise().then((list) => {
       this.pictureList = list;
       this.currentPicture = list[0];
+      this.setPictureListPagination();
     });
+  }
+
+  setPictureListPagination(action = 'none'): void {
+    if (action === 'sum' && this.lastPaginationItem < this.pictureList.length) {
+      this.fistPaginationItem += 3;
+      this.lastPaginationItem += 3;
+    } else if (action === 'rest' && this.fistPaginationItem > 0) {
+      this.fistPaginationItem -= 3;
+      this.lastPaginationItem -= 3;
+    }
+    const newList = this.pictureList.slice(
+      this.fistPaginationItem,
+      this.lastPaginationItem
+    );
+    this.pictureListPagination = newList;
   }
 
   zoomIn(): void {
