@@ -58,7 +58,14 @@
     </div>
     <mat-divider class="divider"></mat-divider>
     <div class="img-gallery-container">
-      <div class="pag-img-container" *ngFor="let picture of pictureList">
+      <div
+        class="{{
+          currentPicture.id === picture.id
+            ? 'pag-img-container selected-img'
+            : 'pag-img-container'
+        }}"
+        *ngFor="let picture of pictureList"
+      >
         <img
           class="pag-img"
           src="{{ picture.src }}"

@@ -51,8 +51,12 @@
 .pag-img-container {
   max-width: 10%;
   height: 45px;
-  border-radius: 5px;
   overflow: hidden;
+  border: 3px solid #fff;
+}
+
+.selected-img {
+  border: 3px solid #ff5252;
 }
 
 .pag-img {
