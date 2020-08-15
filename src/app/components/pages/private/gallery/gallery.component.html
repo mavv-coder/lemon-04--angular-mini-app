@@ -96,13 +96,21 @@
     </div>
     <mat-divider class="divider"></mat-divider>
     <div class="img-gallery-container">
+      <button
+        class="pag-btn"
+        mat-raised-button
+        color="primary"
+        (click)="handleNextPic()"
+      >
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
       <div
         class="{{
           currentPicture.id === picture.id
             ? 'pag-img-container selected-img'
             : 'pag-img-container'
         }}"
-        *ngFor="let picture of pictureList"
+        *ngFor="let picture of pictureList | slice: 3:6"
       >
         <img
           class="pag-img"
@@ -111,6 +119,14 @@
           (click)="setCurrentPicture(picture)"
         />
       </div>
+      <button
+        class="pag-btn"
+        mat-raised-button
+        color="primary"
+        (click)="handleNextPic()"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
     </div>
   </mat-card>
 </main>

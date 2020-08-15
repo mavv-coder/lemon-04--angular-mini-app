@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 20px auto;
   height: max-content;
 }
 
@@ -45,12 +45,14 @@
   margin: 30px 0;
   display: flex;
   justify-content: space-between;
+  align-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .pag-img-container {
-  max-width: 10%;
-  height: 45px;
+  height: 100px;
+  width: 100px;
   overflow: hidden;
   border: 3px solid #fff;
 }
@@ -67,6 +69,12 @@
     transform: scale(1.2);
     opacity: 0.7;
   }
+}
+
+.pag-btn {
+  padding: 0;
+  min-width: 36px;
+  border-radius: 50%;
 }
 
 .divider {
