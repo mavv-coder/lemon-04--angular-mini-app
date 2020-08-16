@@ -6,23 +6,40 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class RotateDirective {
   defaultStep: string = '10';
   totalRotation: number = 0;
+  shiftKeyPres: boolean = false;
 
   @Input()
   step: string;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) {
+    window.addEventListener('keydown', (e) => {
+      if (e.keyCode === 16) this.shiftKeyPres = true;
+    });
+    window.addEventListener('keyup', (e) => (this.shiftKeyPres = false));
+  }
 
   @HostListener('click')
   onClick(): void {
     if (this.el.nativeElement.nodeName === 'IMG') {
-      this.el.nativeElement.style.transform = `rotate(${this.calculateRotation(
-        this.step || this.defaultStep
-      )}deg)`;
+      if (this.shiftKeyPres) {
+        this.el.nativeElement.style.transform = `rotate(${this.handleLeftRotation(
+          this.step || this.defaultStep
+        )}deg)`;
+      } else {
+        this.el.nativeElement.style.transform = `rotate(${this.handleRightRotation(
+          this.step || this.defaultStep
+        )}deg)`;
+      }
     }
   }
 
-  calculateRotation(step: string): number {
+  handleRightRotation(step: string): number {
     this.totalRotation += parseInt(step);
+    return this.totalRotation;
+  }
+
+  handleLeftRotation(step: string): number {
+    this.totalRotation -= parseInt(step);
     return this.totalRotation;
   }
 }
