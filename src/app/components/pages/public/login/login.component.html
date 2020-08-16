@@ -1,5 +1,8 @@
 <h1 class="heading">User login</h1>
-<form #loginForm="ngForm">
+<mat-card *ngIf="showSpinner" class="card spinner-container">
+  <mat-spinner></mat-spinner>
+</mat-card>
+<form *ngIf="!showSpinner" #loginForm="ngForm">
   <mat-card class="card flex-container">
     <p *ngIf="loginDataError" class="error-msg">
       Incorrect password or username

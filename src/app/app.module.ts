@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // App Components
 import { HomeComponent } from './components/pages/public/home/home.component';
@@ -52,6 +53,7 @@ import { RotateDirective } from './directives/rotate.directive';
     MatCardModule,
     MatDividerModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     FormsModule,
   ],
   providers: [],

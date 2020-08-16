@@ -11,6 +11,7 @@ import { observable } from 'rxjs';
 })
 export class LoginComponent {
   private user: User;
+  public showSpinner: boolean = false;
   public loginDataError: boolean;
 
   constructor(private authService: AuthService, private router: Router) {
@@ -20,9 +21,10 @@ export class LoginComponent {
 
   onSubmit(event: MouseEvent): void {
     event.preventDefault();
-    this.authService
-      .login(this.user.username, this.user.password)
-      .subscribe((v) => {
+    this.showSpinner = true;
+    this.authService.login(this.user.username, this.user.password).subscribe(
+      (v) => {
+        this.showSpinner = false;
         if (v === false) {
           this.loginDataError = true;
           setTimeout(() => {
@@ -31,7 +33,11 @@ export class LoginComponent {
         } else {
           this.router.navigate(['/dashboard']);
         }
-      });
+      },
+      (e) => {
+        console.log(`There was something wrong: ${e}`);
+      }
+    );
 
     // );
     // if (login === false) {
