@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { User } from '../model';
 
 @Injectable({
@@ -13,15 +15,15 @@ export class AuthService {
     this.user = this.getLocalStorageData();
   }
 
-  login(username: string, password: string): boolean {
+  login(username: string, password: string): Observable<boolean> {
     if (username === 'admin' && password === 'test') {
       this.user = { username, password };
       this.setLocalStorageData();
       this.authentification = true;
       console.log(this.user);
-      return true;
+      return of(true).pipe(delay(2000));
     }
-    return false;
+    return of(false).pipe(delay(2000));
   }
 
   setLocalStorageData(): void {

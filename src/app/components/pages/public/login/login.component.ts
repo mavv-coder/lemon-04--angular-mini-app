@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../../model';
 import { AuthService } from '../../../../services/auth.service';
+import { observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,18 +20,28 @@ export class LoginComponent {
 
   onSubmit(event: MouseEvent): void {
     event.preventDefault();
-    const login = this.authService.login(
-      this.user.username,
-      this.user.password
-    );
-    if (login === false) {
-      this.loginDataError = true;
-      setTimeout(() => {
-        this.loginDataError = false;
-      }, 4000);
-    } else {
-      this.router.navigate(['/dashboard']);
-    }
+    this.authService
+      .login(this.user.username, this.user.password)
+      .subscribe((v) => {
+        if (v === false) {
+          this.loginDataError = true;
+          setTimeout(() => {
+            this.loginDataError = false;
+          }, 4000);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
+      });
+
+    // );
+    // if (login === false) {
+    //   this.loginDataError = true;
+    //   setTimeout(() => {
+    //     this.loginDataError = false;
+    //   }, 4000);
+    // } else {
+    //   this.router.navigate(['/dashboard']);
+    // }
   }
 
   updateUsername(value: string): void {
