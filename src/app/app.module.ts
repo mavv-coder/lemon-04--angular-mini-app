@@ -25,6 +25,7 @@ import { DashboardComponent } from './components/pages/private/dashboard/dashboa
 import { CrudComponent } from './components/pages/private/crud/crud.component';
 import { ProfileComponent } from './components/pages/private/profile/profile.component';
 import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
+import { RotateDirective } from './directives/rotate.directive';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NotFoundComponent } from './components/pages/common/not-found/not-found
     CrudComponent,
     ProfileComponent,
     NotFoundComponent,
+    RotateDirective,
   ],
   imports: [
     BrowserModule,
