@@ -14,9 +14,11 @@ export class RotateDirective {
 
   @HostListener('click')
   onClick(): void {
-    this.el.nativeElement.style.transform = `rotate(${this.calculateRotation(
-      this.step || this.defaultStep
-    )}deg)`;
+    if (this.el.nativeElement.nodeName === 'IMG') {
+      this.el.nativeElement.style.transform = `rotate(${this.calculateRotation(
+        this.step || this.defaultStep
+      )}deg)`;
+    }
   }
 
   calculateRotation(step: string): number {
