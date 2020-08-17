@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../../../services/authentication/auth.service';
+import { pathNames } from '../../../../app-routing-paths';
 
 @Component({
   selector: 'app-login2',
@@ -66,7 +67,7 @@ export class Login2Component {
               this.loginDataError = false;
             }, 4000);
           } else {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate([pathNames.dashboard]);
           }
         },
         (e) => {

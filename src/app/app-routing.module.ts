@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { pathNames } from './app-routing-paths';
 
 // import pages components
 import { HomeComponent } from './components/pages/public/home/home.component';
@@ -11,16 +12,6 @@ import { RotateComponent } from './components/pages/private/rotate/rotate.compon
 import { DashboardComponent } from './components/pages/private/dashboard/dashboard.component';
 import { ProfileComponent } from './components/pages/private/profile/profile.component';
 import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
-
-export const pathNames = {
-  login: 'login',
-  home: 'home',
-  about: 'about',
-  dashboard: 'dashboard',
-  profile: 'profile',
-  rotate: 'rotate',
-  gallery: 'gallery',
-};
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

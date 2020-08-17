@@ -22,6 +22,6 @@
   </ul>
   <div class="user-login-container">
     <span class="user-name">Hello, {{ authService.getUsername() }}</span>
-    <button mat-flat-button (click)="authService.logOut()">Log out</button>
+    <button mat-flat-button (click)="handleLogOut()">Log out</button>
   </div>
 </div>

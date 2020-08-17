@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../../model';
 import { AuthService } from '../../../../services/authentication/auth.service';
-import { observable } from 'rxjs';
+import { pathNames } from '../../../../app-routing-paths';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent {
             this.loginDataError = false;
           }, 4000);
         } else {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate([pathNames.dashboard]);
         }
       },
       (e) => {
