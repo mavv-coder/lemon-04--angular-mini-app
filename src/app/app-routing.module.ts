@@ -16,8 +16,8 @@ import { NotFoundComponent } from './components/pages/common/not-found/not-found
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: pathNames.home, component: HomeComponent },
-  // { path: pathNames.login, component: LoginComponent },
-  { path: pathNames.login, component: Login2Component },
+  { path: pathNames.login, component: LoginComponent },
+  // { path: pathNames.login, component: Login2Component },
   { path: pathNames.about, component: AboutComponent },
   { path: pathNames.dashboard, component: DashboardComponent },
   { path: pathNames.gallery, component: GalleryComponent },

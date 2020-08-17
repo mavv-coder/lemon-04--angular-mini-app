@@ -11,20 +11,22 @@ import { pathNames } from '../../../../app-routing-paths';
 })
 export class LoginComponent {
   private user: User;
-  public showSpinner: boolean = false;
+  // public showSpinner: boolean = false;
   public loginDataError: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router) {
     this.user = { username: '', password: '' };
     this.loginDataError = false;
   }
 
-  onSubmit(event: MouseEvent): void {
+  handleSubmit(event: MouseEvent): void {
     event.preventDefault();
-    this.showSpinner = true;
+    this.authService.setSpinnerState(true);
+    // this.showSpinner = true;
     this.authService.login(this.user.username, this.user.password).subscribe(
       (v) => {
-        this.showSpinner = false;
+        this.authService.setSpinnerState(false);
+        // this.showSpinner = false;
         if (v === false) {
           this.loginDataError = true;
           setTimeout(() => {
@@ -38,16 +40,6 @@ export class LoginComponent {
         console.log(`There was something wrong: ${e}`);
       }
     );
-
-    // );
-    // if (login === false) {
-    //   this.loginDataError = true;
-    //   setTimeout(() => {
-    //     this.loginDataError = false;
-    //   }, 4000);
-    // } else {
-    //   this.router.navigate(['/dashboard']);
-    // }
   }
 
   updateUsername(value: string): void {
