@@ -1,6 +1,11 @@
+.content {
+  min-height: calc(100vh - 82px - 132px - 40px);
+  padding-top: 40px;
+}
+
 .heading {
   width: max-content;
-  margin: 60px auto 0 auto;
+  margin: 0 auto;
   padding-bottom: 6px;
   color: #3f51b5;
   text-align: center;
