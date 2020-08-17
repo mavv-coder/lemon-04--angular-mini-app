@@ -15,10 +15,9 @@ import { pathNames } from '../../../../app-routing-paths';
   styleUrls: ['./login2.component.scss'],
 })
 export class Login2Component {
-  userForm: FormGroup;
-  usernameCtrl: FormControl;
-  passwordCtrl: FormControl;
-  // public showSpinner: boolean = false;
+  public userForm: FormGroup;
+  public usernameCtrl: FormControl;
+  public passwordCtrl: FormControl;
   public loginDataError: boolean = false;
 
   constructor(
@@ -40,18 +39,15 @@ export class Login2Component {
 
   updateUsername(value: string): void {
     this.usernameCtrl.setValue(value);
-    console.log(this.usernameCtrl.errors);
   }
 
   updatePassword(value: string): void {
     this.passwordCtrl.setValue(value);
   }
 
-  onSubmit(event: MouseEvent): void {
+  handleSubmit(event: MouseEvent): void {
     event.preventDefault();
     this.authService.setSpinnerState(true);
-    // this.showSpinner = true;
-
     this.authService
       .login(
         this.userForm.get('username').value,
@@ -60,7 +56,6 @@ export class Login2Component {
       .subscribe(
         (v) => {
           this.authService.setSpinnerState(false);
-          // this.showSpinner = false;
           if (v === false) {
             this.loginDataError = true;
             setTimeout(() => {

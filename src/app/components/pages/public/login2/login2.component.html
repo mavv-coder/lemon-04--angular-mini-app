@@ -2,14 +2,14 @@
   <h1 class="heading">User login</h1>
   <mat-card
     *ngIf="authService.getSpinnerState()"
-    class="card spinner-container"
+    class="card spinner-container form-container"
   >
     <mat-spinner></mat-spinner>
   </mat-card>
   <form
     *ngIf="!authService.getSpinnerState()"
-    [formGroup]="userForm"
     class="form-container"
+    [formGroup]="userForm"
   >
     <mat-card class="card flex-container">
       <p *ngIf="loginDataError" class="error-msg">
@@ -18,12 +18,12 @@
       <mat-form-field>
         <mat-label>Username</mat-label>
         <input
-          [formControl]="usernameCtrl"
           matInput
-          name="username"
-          placeholder="Type your Username"
-          (blur)="updateUsername($event.target.value)"
           type="text"
+          name="username"
+          placeholder="Type your username"
+          [formControl]="usernameCtrl"
+          (blur)="updateUsername($event.target.value)"
         />
       </mat-form-field>
       <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
@@ -38,12 +38,12 @@
       <mat-form-field>
         <mat-label>Password</mat-label>
         <input
-          [formControl]="passwordCtrl"
           matInput
           type="password"
           name="password"
-          (blur)="updatePassword($event.target.value)"
           placeholder="Type your password"
+          [formControl]="passwordCtrl"
+          (blur)="updatePassword($event.target.value)"
         />
       </mat-form-field>
       <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched">
@@ -57,10 +57,10 @@
     </mat-card>
     <button
       mat-raised-button
-      [disabled]="!userForm.valid"
-      class="submit-btn"
       color="primary"
-      (click)="onSubmit($event)"
+      class="submit-btn"
+      [disabled]="!userForm.valid"
+      (click)="handleSubmit($event)"
     >
       Login
     </button>
