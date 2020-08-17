@@ -4,14 +4,18 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
   selector: '[appRotate]',
 })
 export class RotateDirective {
-  defaultStep: string = '10';
-  totalRotation: number = 0;
-  shiftKeyPres: boolean = false;
+  defaultStep: string;
+  totalRotation: number;
+  shiftKeyPres: boolean;
 
   @Input()
   step: string;
 
   constructor(private el: ElementRef) {
+    this.defaultStep = '10';
+    this.totalRotation = 0;
+    this.shiftKeyPres = false;
+
     window.addEventListener('keydown', (e) => {
       if (e.keyCode === 16) this.shiftKeyPres = true;
     });
