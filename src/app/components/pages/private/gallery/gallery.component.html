@@ -4,92 +4,84 @@
     <mat-card class="gallery-container">
       <div class="img-container">
         <img
-          class="main-img scale-{{ currentScale }}"
           src="{{ currentPicture.src }}"
-          alt=""
+          alt="{{ currentPicture.title }}"
+          class="main-img scale-{{ currentScale }}"
         />
       </div>
       <mat-divider class="divider"></mat-divider>
       <div class="btn-container">
         <button
+          mat-raised-button
+          color="primary"
           *ngIf="pictureList[0].id !== currentPicture.id"
-          mat-raised-button
-          color="primary"
           (click)="handlePreviousPic()"
         >
           Previous
         </button>
         <button
+          mat-raised-button
+          color="primary"
+          disabled
           *ngIf="pictureList[0].id === currentPicture.id"
-          mat-raised-button
-          color="primary"
-          disabled
-          (click)="handlePreviousPic()"
         >
           Previous
         </button>
         <button
+          mat-raised-button
+          color="primary"
           *ngIf="pictureList[pictureList.length - 1].id !== currentPicture.id"
-          mat-raised-button
-          color="primary"
           (click)="handleNextPic()"
         >
           Next
         </button>
         <button
+          mat-raised-button
+          color="primary"
+          disabled
           *ngIf="pictureList[pictureList.length - 1].id === currentPicture.id"
-          mat-raised-button
-          color="primary"
-          disabled
-          (click)="handleNextPic()"
         >
           Next
         </button>
         <button
           mat-raised-button
           color="basic"
-          (click)="zoomIn()"
           *ngIf="currentScale < 5"
+          (click)="handleZoomIn()"
         >
           Zoom in
         </button>
-        <button
-          mat-raised-button
-          *ngIf="currentScale === 5"
-          disabled
-          (click)="zoomOut()"
-        >
+        <button mat-raised-button disabled *ngIf="currentScale === 5">
           Zoom in
         </button>
         <button
           mat-raised-button
           color="basic"
-          (click)="zoomOut()"
           *ngIf="currentScale > 1"
+          (click)="handleZoomOut()"
         >
           Zoom out
         </button>
         <button
           mat-raised-button
           color="basic"
-          (click)="zoomOut()"
-          *ngIf="currentScale === 1"
           disabled
+          *ngIf="currentScale === 1"
         >
           Zoom out
         </button>
         <button
-          *ngIf="!isPlayingGallery"
-          (click)="handlePlayGallery()"
           mat-raised-button
           color="warn"
+          *ngIf="!isPlayingGallery"
+          (click)="handlePlayGallery()"
         >
           Play
         </button>
         <button
-          *ngIf="isPlayingGallery"
           mat-raised-button
           color="warn"
+          *ngIf="isPlayingGallery"
           (click)="handlePlayGallery()"
         >
           Stop
@@ -98,21 +90,13 @@
       <mat-divider class="divider"></mat-divider>
       <div class="img-gallery-container">
         <button
-          class="pag-btn"
           mat-raised-button
           color="primary"
+          class="pag-btn"
           (click)="setPictureListPagination('rest')"
         >
           <mat-icon>keyboard_arrow_left</mat-icon>
         </button>
-        <!-- <div
-        class="{{
-          currentPicture.id === picture.id
-            ? 'pag-img-container selected-img'
-            : 'pag-img-container'
-        }}"
-        *ngFor="let picture of pictureList | slice: {{num1}}:{{num2}}"
-      > -->
         <div
           class="{{
             currentPicture.id === picture.id
@@ -122,16 +106,16 @@
           *ngFor="let picture of pictureListPagination"
         >
           <img
-            class="pag-img"
             src="{{ picture.src }}"
             alt="{{ picture.title }}"
+            class="pag-img"
             (click)="setCurrentPicture(picture)"
           />
         </div>
         <button
-          class="pag-btn"
           mat-raised-button
           color="primary"
+          class="pag-btn"
           (click)="setPictureListPagination('sum')"
         >
           <mat-icon>keyboard_arrow_right</mat-icon>
