@@ -1,0 +1,5 @@
+<nav class="navbar">
+  <app-logo class="logo-container"></app-logo>
+  <app-menu-public *ngIf="!authService.isLogged()"></app-menu-public>
+  <app-menu-private *ngIf="authService.isLogged()"></app-menu-private>
+</nav>
