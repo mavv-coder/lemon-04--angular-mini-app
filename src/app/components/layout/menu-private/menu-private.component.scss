@@ -1,3 +1,9 @@
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .list {
   display: flex;
   justify-content: space-between;
@@ -14,12 +20,23 @@ li {
   }
 }
 
+.selected {
+  background-color: #ff4081;
+}
+
 a {
   &:hover {
-    background-color: #283593;
+    background-color: #303f9f;
   }
 }
 
-.selected {
-  background-color: #ff4081;
+.user-login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+}
+
+.user-name {
+  margin-right: 20px;
 }

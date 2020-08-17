@@ -17,12 +17,12 @@ export class Login2Component {
   userForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
-  public showSpinner: boolean = false;
+  // public showSpinner: boolean = false;
   public loginDataError: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) {
     this.createEditForm();
@@ -48,7 +48,8 @@ export class Login2Component {
 
   onSubmit(event: MouseEvent): void {
     event.preventDefault();
-    this.showSpinner = true;
+    this.authService.setSpinnerState(true);
+    // this.showSpinner = true;
 
     this.authService
       .login(
@@ -57,7 +58,8 @@ export class Login2Component {
       )
       .subscribe(
         (v) => {
-          this.showSpinner = false;
+          this.authService.setSpinnerState(false);
+          // this.showSpinner = false;
           if (v === false) {
             this.loginDataError = true;
             setTimeout(() => {

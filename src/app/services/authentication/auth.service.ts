@@ -9,6 +9,7 @@ import { User } from '../../model';
 export class AuthService {
   private user: User;
   private authentification: boolean;
+  private showSpinner: boolean = false;
 
   constructor() {
     this.authentification = false;
@@ -55,5 +56,13 @@ export class AuthService {
 
   getUsername(): string {
     return this.user.username;
+  }
+
+  setSpinnerState(v: boolean): void {
+    this.showSpinner = v;
+  }
+
+  getSpinnerState(): boolean {
+    return this.showSpinner;
   }
 }

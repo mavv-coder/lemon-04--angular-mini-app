@@ -1,8 +1,8 @@
 <h1 class="heading">User login</h1>
-<mat-card *ngIf="showSpinner" class="card spinner-container">
+<mat-card *ngIf="authService.getSpinnerState()" class="card spinner-container">
   <mat-spinner></mat-spinner>
 </mat-card>
-<form *ngIf="!showSpinner" [formGroup]="userForm">
+<form *ngIf="!authService.getSpinnerState()" [formGroup]="userForm">
   <mat-card class="card flex-container">
     <p *ngIf="loginDataError" class="error-msg">
       Incorrect password or username
