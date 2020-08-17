@@ -32,6 +32,7 @@ import { MenuPrivateComponent } from './components/layout/menu-private/menu-priv
 
 // Directives
 import { RotateDirective } from './directives/rotate/rotate.directive';
+import { RotateComponent } from './components/pages/private/rotate/rotate.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { RotateDirective } from './directives/rotate/rotate.directive';
     NavbarComponent,
     MenuPublicComponent,
     MenuPrivateComponent,
+    RotateComponent,
   ],
   imports: [
     BrowserModule,

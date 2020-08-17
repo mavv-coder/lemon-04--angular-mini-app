@@ -7,7 +7,7 @@ import { LoginComponent } from './components/pages/public/login/login.component'
 import { Login2Component } from './components/pages/public/login2/login2.component';
 import { AboutComponent } from './components/pages/public/about/about.component';
 import { GalleryComponent } from './components/pages/private/gallery/gallery.component';
-import { CrudComponent } from './components/pages/private/crud/crud.component';
+import { RotateComponent } from './components/pages/private/rotate/rotate.component';
 import { DashboardComponent } from './components/pages/private/dashboard/dashboard.component';
 import { ProfileComponent } from './components/pages/private/profile/profile.component';
 import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
@@ -18,7 +18,7 @@ export const pathNames = {
   about: 'about',
   dashboard: 'dashboard',
   profile: 'profile',
-  crud: 'crud',
+  rotate: 'rotate',
   gallery: 'gallery',
 };
 
@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: pathNames.dashboard, component: DashboardComponent },
   { path: pathNames.gallery, component: GalleryComponent },
   { path: pathNames.profile, component: ProfileComponent },
-  { path: pathNames.crud, component: CrudComponent },
+  { path: pathNames.rotate, component: RotateComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
