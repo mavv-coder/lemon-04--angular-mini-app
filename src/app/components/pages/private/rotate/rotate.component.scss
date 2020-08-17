@@ -1,8 +1,12 @@
+.content {
+  min-height: calc(100vh - 82px - 132px);
+}
+
 .heading {
   text-align: center;
 }
 
-.main-container {
+.img-container {
   width: 100%;
   display: flex;
   justify-content: center;

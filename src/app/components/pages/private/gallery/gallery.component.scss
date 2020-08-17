@@ -1,6 +1,12 @@
+.content {
+  min-height: calc(100vh - 82px - 132px);
+}
+
 .heading {
   width: max-content;
-  margin: 60px auto 0 auto;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
   padding-bottom: 6px;
   color: #3f51b5;
   text-align: center;
@@ -9,7 +15,7 @@
   border-bottom: 1px solid #424242;
 }
 
-.main-container {
+.main-container2 {
   display: flex;
   justify-content: center;
   width: 100%;

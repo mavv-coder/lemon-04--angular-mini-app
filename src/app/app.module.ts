@@ -21,7 +21,7 @@ import { GalleryComponent } from './components/pages/private/gallery/gallery.com
 import { AboutComponent } from './components/pages/public/about/about.component';
 import { NotFoundComponent } from './components/pages/common/not-found/not-found.component';
 import { DashboardComponent } from './components/pages/private/dashboard/dashboard.component';
-import { CrudComponent } from './components/pages/private/crud/crud.component';
+import { RotateComponent } from './components/pages/private/rotate/rotate.component';
 import { ProfileComponent } from './components/pages/private/profile/profile.component';
 
 // Components ~ layout
@@ -32,7 +32,7 @@ import { MenuPrivateComponent } from './components/layout/menu-private/menu-priv
 
 // Directives
 import { RotateDirective } from './directives/rotate/rotate.directive';
-import { RotateComponent } from './components/pages/private/rotate/rotate.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { RotateComponent } from './components/pages/private/rotate/rotate.compon
     HomeComponent,
     LogoComponent,
     DashboardComponent,
-    CrudComponent,
     ProfileComponent,
     NotFoundComponent,
     RotateDirective,
@@ -52,6 +51,7 @@ import { RotateComponent } from './components/pages/private/rotate/rotate.compon
     MenuPublicComponent,
     MenuPrivateComponent,
     RotateComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
