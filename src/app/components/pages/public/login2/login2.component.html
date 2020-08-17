@@ -6,7 +6,11 @@
   >
     <mat-spinner></mat-spinner>
   </mat-card>
-  <form *ngIf="!authService.getSpinnerState()" [formGroup]="userForm">
+  <form
+    *ngIf="!authService.getSpinnerState()"
+    [formGroup]="userForm"
+    class="form-container"
+  >
     <mat-card class="card flex-container">
       <p *ngIf="loginDataError" class="error-msg">
         Incorrect password or username
