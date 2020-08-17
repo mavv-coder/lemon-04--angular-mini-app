@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import pages components
 import { HomeComponent } from './components/pages/public/home/home.component';
 import { LoginComponent } from './components/pages/public/login/login.component';
+import { Login2Component } from './components/pages/public/login2/login2.component';
 import { AboutComponent } from './components/pages/public/about/about.component';
 import { GalleryComponent } from './components/pages/private/gallery/gallery.component';
 import { CrudComponent } from './components/pages/private/crud/crud.component';
@@ -24,7 +25,8 @@ export const pathNames = {
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: pathNames.home, component: HomeComponent },
-  { path: pathNames.login, component: LoginComponent },
+  // { path: pathNames.login, component: LoginComponent },
+  { path: pathNames.login, component: Login2Component },
   { path: pathNames.about, component: AboutComponent },
   { path: pathNames.dashboard, component: DashboardComponent },
   { path: pathNames.gallery, component: GalleryComponent },

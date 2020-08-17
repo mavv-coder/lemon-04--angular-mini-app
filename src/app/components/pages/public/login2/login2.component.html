@@ -1,0 +1,59 @@
+<h1 class="heading">User login</h1>
+<mat-card *ngIf="showSpinner" class="card spinner-container">
+  <mat-spinner></mat-spinner>
+</mat-card>
+<form *ngIf="!showSpinner" [formGroup]="userForm">
+  <mat-card class="card flex-container">
+    <p *ngIf="loginDataError" class="error-msg">
+      Incorrect password or username
+    </p>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        [formControl]="usernameCtrl"
+        matInput
+        name="username"
+        placeholder="Type your Username"
+        (blur)="updateUsername($event.target.value)"
+        type="text"
+      />
+    </mat-form-field>
+    <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
+      <p *ngIf="usernameCtrl.errors.required" class="error-msg">
+        Required field
+      </p>
+      <p *ngIf="usernameCtrl.errors.minlength" class="error-msg">
+        Type at least 5 characters
+      </p>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        [formControl]="passwordCtrl"
+        matInput
+        type="password"
+        name="password"
+        (blur)="updatePassword($event.target.value)"
+        placeholder="Type your password"
+      />
+    </mat-form-field>
+    <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched">
+      <p *ngIf="passwordCtrl.errors.required" class="error-msg">
+        Required field
+      </p>
+      <p *ngIf="passwordCtrl.errors.minlength" class="error-msg">
+        Type at least 4 characters
+      </p>
+    </div>
+  </mat-card>
+  <button
+    mat-raised-button
+    [disabled]="!userForm.valid"
+    class="submit-btn"
+    color="primary"
+    (click)="onSubmit($event)"
+  >
+    Login
+  </button>
+</form>
