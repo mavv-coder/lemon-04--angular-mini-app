@@ -9,10 +9,11 @@ import { User } from '../../model';
 export class AuthService {
   private user: User;
   private authentification: boolean;
-  private showSpinner: boolean = false;
+  private spinnerState: boolean;
 
   constructor() {
     this.authentification = false;
+    this.spinnerState = false;
     this.user = this.getLocalStorageData();
   }
 
@@ -21,10 +22,23 @@ export class AuthService {
       this.user = { username, password };
       this.setLocalStorageData();
       this.authentification = true;
-      console.log(this.user);
       return of(true).pipe(delay(2000));
     }
     return of(false).pipe(delay(2000));
+  }
+
+  logOut(): void {
+    this.user = { username: '', password: '' };
+    this.authentification = false;
+    this.cleanLocalStorageData();
+  }
+
+  isLogged(): boolean {
+    return this.authentification;
+  }
+
+  getUsername(): string {
+    return this.user.username;
   }
 
   setLocalStorageData(): void {
@@ -44,25 +58,11 @@ export class AuthService {
     localStorage.clear();
   }
 
-  logOut(): void {
-    this.user = { username: '', password: '' };
-    this.authentification = false;
-    this.cleanLocalStorageData();
-  }
-
-  isLogged(): boolean {
-    return this.authentification;
-  }
-
-  getUsername(): string {
-    return this.user.username;
-  }
-
   setSpinnerState(v: boolean): void {
-    this.showSpinner = v;
+    this.spinnerState = v;
   }
 
   getSpinnerState(): boolean {
-    return this.showSpinner;
+    return this.spinnerState;
   }
 }

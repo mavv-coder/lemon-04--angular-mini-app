@@ -18,7 +18,7 @@ export class Login2Component {
   public userForm: FormGroup;
   public usernameCtrl: FormControl;
   public passwordCtrl: FormControl;
-  public loginDataError: boolean = false;
+  public loginDataError: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,6 +26,7 @@ export class Login2Component {
     private router: Router
   ) {
     this.createEditForm();
+    this.loginDataError = false;
   }
 
   createEditForm() {
