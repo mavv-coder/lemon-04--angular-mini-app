@@ -29,10 +29,10 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { LogoComponent } from './components/layout/logo/logo.component';
 import { MenuPublicComponent } from './components/layout/menu-public/menu-public.component';
 import { MenuPrivateComponent } from './components/layout/menu-private/menu-private.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 // Directives
 import { RotateDirective } from './directives/rotate/rotate.directive';
-import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [

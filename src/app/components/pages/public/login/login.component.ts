@@ -11,7 +11,6 @@ import { pathNames } from '../../../../app-routing-paths';
 })
 export class LoginComponent {
   private user: User;
-  // public showSpinner: boolean = false;
   public loginDataError: boolean;
 
   constructor(public authService: AuthService, private router: Router) {
@@ -22,11 +21,9 @@ export class LoginComponent {
   handleSubmit(event: MouseEvent): void {
     event.preventDefault();
     this.authService.setSpinnerState(true);
-    // this.showSpinner = true;
     this.authService.login(this.user.username, this.user.password).subscribe(
       (v) => {
         this.authService.setSpinnerState(false);
-        // this.showSpinner = false;
         if (v === false) {
           this.loginDataError = true;
           setTimeout(() => {
