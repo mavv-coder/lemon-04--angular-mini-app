@@ -13,7 +13,7 @@ export class GalleryComponent {
   currentScale: number;
   isPlayingGallery: boolean;
   intervalActivated: number;
-  pictureListPagination: ApiPictureEntity[];
+  // pictureListPagination: ApiPictureEntity[];
   fistPaginationItem: number;
   lastPaginationItem: number;
 
@@ -25,7 +25,7 @@ export class GalleryComponent {
       this.isPlayingGallery = false;
       this.fistPaginationItem = 0;
       this.lastPaginationItem = 3;
-      this.setPictureListPagination();
+      // this.setPictureListPagination();
     });
   }
 
@@ -37,11 +37,12 @@ export class GalleryComponent {
       this.fistPaginationItem -= 3;
       this.lastPaginationItem -= 3;
     }
-    const newList = this.pictureList.slice(
-      this.fistPaginationItem,
-      this.lastPaginationItem
-    );
-    this.pictureListPagination = newList;
+    // All the commented code in this file is destinated to avoid the use of pipe slice in html
+    // const newList = this.pictureList.slice(
+    //   this.fistPaginationItem,
+    //   this.lastPaginationItem
+    // );
+    // this.pictureListPagination = newList;
   }
 
   handleZoomIn(): void {

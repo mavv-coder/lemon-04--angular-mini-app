@@ -103,8 +103,13 @@
               ? 'pag-img-container selected-img'
               : 'pag-img-container'
           }}"
-          *ngFor="let picture of pictureListPagination"
+          *ngFor="
+            let picture of pictureList
+              | slice: fistPaginationItem:lastPaginationItem
+          "
         >
+          <!-- The line below can replace slice pipe above -->
+          <!-- *ngFor="let picture of pictureListPagination" -->
           <img
             src="{{ picture.src }}"
             alt="{{ picture.title }}"
