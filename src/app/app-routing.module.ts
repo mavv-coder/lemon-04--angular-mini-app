@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { pathNames } from './app-routing-paths';
+import { AuthGuard } from './guards/auth.guard';
 
 // import pages components
 import { HomeComponent } from './components/pages/public/home/home.component';
@@ -19,10 +20,26 @@ const routes: Routes = [
   { path: pathNames.login, component: LoginComponent },
   // { path: pathNames.login, component: Login2Component },
   { path: pathNames.about, component: AboutComponent },
-  { path: pathNames.dashboard, component: DashboardComponent },
-  { path: pathNames.gallery, component: GalleryComponent },
-  { path: pathNames.profile, component: ProfileComponent },
-  { path: pathNames.rotate, component: RotateComponent },
+  {
+    path: pathNames.dashboard,
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: pathNames.gallery,
+    component: GalleryComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: pathNames.profile,
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: pathNames.rotate,
+    component: RotateComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
